@@ -19,7 +19,9 @@
       "archipelago_purchase_locations": 5,
       "archipelago_purchase_meta_coin_cost": 5,
       "archipelago_mission_victories_are_locations": true,
-      "excluded_reward_ids": ["Foehn Blast Trench Access"]
+      "excluded_reward_ids": [
+        "Foehn Blast Trench Access"
+      ]
     },
     "mission_rewards": {
       "act_1": {
@@ -50,439 +52,2510 @@
     "stage_difficulty_weights": [
       {
         "through_percent": 30,
-        "weights": {"Casual": 80, "Normal": 20, "Mental": 0}
+        "weights": {
+          "Casual": 80,
+          "Normal": 20,
+          "Mental": 0
+        }
       },
       {
         "through_percent": 50,
-        "weights": {"Casual": 35, "Normal": 65, "Mental": 0}
+        "weights": {
+          "Casual": 35,
+          "Normal": 65,
+          "Mental": 0
+        }
       },
       {
         "through_percent": 70,
-        "weights": {"Casual": 20, "Normal": 60, "Mental": 20}
+        "weights": {
+          "Casual": 20,
+          "Normal": 60,
+          "Mental": 20
+        }
       },
       {
         "through_percent": 100,
-        "weights": {"Casual": 10, "Normal": 45, "Mental": 45}
+        "weights": {
+          "Casual": 10,
+          "Normal": 45,
+          "Mental": 45
+        }
       }
     ],
     "power_target_prices": {
-      "AMERICANPARADROPSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "BACKWARPSPECIAL": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "BLACKOUTMISSILESPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "BLACKWIDOWALPHASPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BLACKWIDOWSPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "BLOODHOUNDSSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BOIDBLITZSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "CHAOSTOUCHSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "CHRONOBOOSTSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "CHRONOLIFTSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "CHRONOSPHERESPECIAL": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "CONFUSIONGRIDSPAWN": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "CRYOMINESPAWN": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "CRYOSHOTSPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "CRYOSPEARSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "DECOYSQUADRONSPECIAL": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "DECOYTEAMSPECIAL": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "DEVOURERSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "DISRUPTORSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "DRAKUVSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "ELITERESERVESSPECIAL": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "EMPMINESPAWN": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "EMPULSSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "FLAMETOWERSPECIAL": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "FORCESHIELDSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "GEARCHANGESPECIAL": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "GENOMINESPAWN": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "GLACIALSCREENSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "GREATTEMPESTSPECIAL": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "HARBINGERSPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "HIJACKERSSPECIAL": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "HUNTERSEEKERSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "ILLUSIONSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "INSTANTSHELTERSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "IRONCURTAINSPECIAL": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "IRRADIATEBETASPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "IRRADIATESPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "KINGSNAKESSPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "KINETICBARRIERSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "KNIGHTFALLSPAWN": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "KNIGHTFALLSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "LIBRACLONESPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "LIGHTNINGRODSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "LIGHTNINGSTORMSPECIAL": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "MADMINESPECIAL": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "MAGNETSHIFTSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "MAINTENANCESPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "MEGAARENASPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "MERCURYSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "MORENGINEERINGTEAMSPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "MOTORAMBUSHSPECIAL": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "MUTATIONSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "NANOCHARGESPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "NANOFIBERSYNCSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "NAVALMINESPECIAL": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "NUCLEARPATHSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "NUKESPECIAL": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "OVERCHARGESPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "PACKATTACKSPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "PALADINAIDSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "PSYCHICDOMINATORSPECIAL": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "PSYCHICFLASHSPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "QUICKFORTSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "RADATTACKSPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "RAGEINDUCTORSPECIAL": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "RAVENSPECIAL": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "RECONSORTIESPECIAL": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "REGENDRUGSSPECIAL": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "REPAIRDRONESPECIAL": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "REPAIRDRONESSPECIAL": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "RISENMONOLITHSPECIAL": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "RUINERSPECIAL": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "SIGNALJAMMERSPECIAL": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "SMOKEBOMBSSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "SONARPULSESPECIAL": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "SPINBLADESPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "SPYPLANESPECIAL": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "SPYSATSPECIAL": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "STASISGRIDSPAWN": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "STRATOSPECIAL": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "SWEEPERDROPSPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "TANKDROPSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "TARGETPAINTERSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "TECHMISSILESPECIAL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "TERRORDROPSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "TICKTRAPSPECIAL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "TIMEFREEZESPECIAL": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "TOXICSTRIKESPECIAL": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "VISIONSPECIAL": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "WALLBUSTERSPECIAL": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "WARPMINERSSPECIAL": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "WONDERDRUGSSPECIAL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "ZEPHYRBEACONSPECIAL": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5}
+      "AMERICANPARADROPSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "BACKWARPSPECIAL": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "BLACKOUTMISSILESPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "BLACKWIDOWALPHASPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BLACKWIDOWSPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "BLOODHOUNDSSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BOIDBLITZSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "CHAOSTOUCHSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "CHRONOBOOSTSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "CHRONOLIFTSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "CHRONOSPHERESPECIAL": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "CONFUSIONGRIDSPAWN": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "CRYOMINESPAWN": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "CRYOSHOTSPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "CRYOSPEARSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "DECOYSQUADRONSPECIAL": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "DECOYTEAMSPECIAL": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "DEVOURERSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "DISRUPTORSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "DRAKUVSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "ELITERESERVESSPECIAL": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "EMPMINESPAWN": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "EMPULSSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "FLAMETOWERSPECIAL": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "FORCESHIELDSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "GEARCHANGESPECIAL": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "GENOMINESPAWN": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "GLACIALSCREENSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "GREATTEMPESTSPECIAL": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "HARBINGERSPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "HIJACKERSSPECIAL": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "HUNTERSEEKERSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "ILLUSIONSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "INSTANTSHELTERSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "IRONCURTAINSPECIAL": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "IRRADIATEBETASPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "IRRADIATESPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "KINGSNAKESSPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "KINETICBARRIERSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "KNIGHTFALLSPAWN": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "KNIGHTFALLSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "LIBRACLONESPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "LIGHTNINGRODSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "LIGHTNINGSTORMSPECIAL": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "MADMINESPECIAL": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "MAGNETSHIFTSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "MAINTENANCESPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "MEGAARENASPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "MERCURYSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "MORENGINEERINGTEAMSPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "MOTORAMBUSHSPECIAL": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "MUTATIONSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "NANOCHARGESPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "NANOFIBERSYNCSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "NAVALMINESPECIAL": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "NUCLEARPATHSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "NUKESPECIAL": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "OVERCHARGESPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "PACKATTACKSPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "PALADINAIDSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "PSYCHICDOMINATORSPECIAL": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "PSYCHICFLASHSPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "QUICKFORTSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "RADATTACKSPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "RAGEINDUCTORSPECIAL": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "RAVENSPECIAL": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "RECONSORTIESPECIAL": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "REGENDRUGSSPECIAL": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "REPAIRDRONESPECIAL": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "REPAIRDRONESSPECIAL": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "RISENMONOLITHSPECIAL": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "RUINERSPECIAL": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "SIGNALJAMMERSPECIAL": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "SMOKEBOMBSSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "SONARPULSESPECIAL": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "SPINBLADESPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "SPYPLANESPECIAL": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "SPYSATSPECIAL": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "STASISGRIDSPAWN": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "STRATOSPECIAL": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "SWEEPERDROPSPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "TANKDROPSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "TARGETPAINTERSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "TECHMISSILESPECIAL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "TERRORDROPSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "TICKTRAPSPECIAL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "TIMEFREEZESPECIAL": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "TOXICSTRIKESPECIAL": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "VISIONSPECIAL": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "WALLBUSTERSPECIAL": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "WARPMINERSSPECIAL": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "WONDERDRUGSSPECIAL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "ZEPHYRBEACONSPECIAL": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      }
     },
     "unit_target_prices": {
-      "ABRM": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "ADOG": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "AEGIS": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "AERO": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "AHMV": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "AHVYBOT": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "AHVYBOT2": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "AKULA": {"run_access": 11, "run_buff": 6, "permanent_access": 50, "permanent_buff": 12},
-      "AMC": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "AMEDIC": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "AMCV": {"run_access": 9, "run_buff": null, "permanent_access": 38, "permanent_buff": null},
-      "APOC": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "ARCH": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "ARMA": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "ARMR": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "ARND": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "ARSO": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "ARTY": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "ASSN": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "ATESLA": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BANE": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BASIL": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "BASS": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "BEAG": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BFRT": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "BGGY": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BIKE": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "BLIGHT": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BLZZ": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BOID": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "BOREK": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "BORIS": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "BRUTE": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "BRUTM": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "BRUTS": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "BRUTV": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "BSUB": {"run_access": 11, "run_buff": 6, "permanent_access": 50, "permanent_buff": 12},
-      "BURA": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "BUZZ": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "CAPU": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "CAOS": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "CARRIER": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "CBRIS": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "CHITZ": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "CHRP": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "CHRTNK": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "CLNT": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "CLAIR": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "CLEG": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "CMIN": {"run_access": null, "run_buff": 4, "permanent_access": null, "permanent_buff": 8},
-      "CNTR": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "COMA": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "COND": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "CONF": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "COON": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "COVE": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "COYO": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "CRYO": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "CTNK": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "CYBO": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "CYCL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "CYCOM": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "CZEP": {"run_access": 11, "run_buff": 6, "permanent_access": 50, "permanent_buff": 12},
-      "DBOAT": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "DESO": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "DESOR": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "DEST": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "DEVO": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "DHANDL": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "DISK": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "DIVER": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "DIVERP": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "DLPH": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "DOG": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "DRACO": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "DRED": {"run_access": 11, "run_buff": 6, "permanent_access": 50, "permanent_buff": 12},
-      "DRIL": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "DRON": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "DTRUCK": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "DUNE": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "DUST": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "E1": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "E2": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "EDRN": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "EMPR": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "ENFO": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "ENGINEER": {"run_access": null, "run_buff": 2, "permanent_access": null, "permanent_buff": 5},
-      "ETNK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "EUREKA": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "FAAVAL": {"run_access": 11, "run_buff": 6, "permanent_access": 50, "permanent_buff": 12},
-      "FACOAT": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "FACOMP": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "FACONF": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "FAFILD": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "FAGUAR": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "FAINHI": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "FAMMIN": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "FARAIL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "FAREPR": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "FASONI": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "FDRON": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "FENGINEER": {"run_access": null, "run_buff": 2, "permanent_access": null, "permanent_buff": 5},
-      "FMCV": {"run_access": 9, "run_buff": null, "permanent_access": 38, "permanent_buff": null},
-      "FLAKT": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "FLAMER": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "FORTRESS": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "FOX": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "FV": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "GACPIL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "GACRYO": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "GAGAP": {"run_access": 3, "run_buff": null, "permanent_access": 10, "permanent_buff": null},
-      "GAGUN": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "GAHYPE": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "GAOREP": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "GAPILL": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "GAPOST": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "GASTAS": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "GGI": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "GHOST": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "GHTNK": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "GHTNKP": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "GOTTER": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "GRAV": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "GRND": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "GRUMBLE": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "GTGCAN": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "GYRO": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "HARP": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "HARV": {"run_access": null, "run_buff": 4, "permanent_access": null, "permanent_buff": 8},
-      "HBIRD": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "HCAN": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "HCRUIS": {"run_access": 11, "run_buff": 6, "permanent_access": 50, "permanent_buff": 12},
-      "HEPH": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "HIJACKER": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "HOWI": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "HTK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "HTNK": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "HUNTR": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "HURR": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "ICBM": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "IDRAG": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "INIT": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "INTRUDER": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "ITNK": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "IVAN": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "JACKAL": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "JACKALP": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "JTNK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "JUMPJET": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "KAOS": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "KNIGHT": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "KRUKOV": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "KSNK": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "KTNK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "LCRF": {"run_access": null, "run_buff": 4, "permanent_access": null, "permanent_buff": 8},
-      "LEVI": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "LIBRA": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "LIONH": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "LONGBO": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "LTNK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "LUNR": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "LUNRE": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "MAD": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "MADU": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "MAMM": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "MAMU": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "MAMUP": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "MANTA": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "MARA": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "MECHA": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "MEGA": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "MGTK": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "MIND": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "MORALES": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "MOTOR": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "MSA": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "MTNK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "MWF": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "NABNKR": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "NABNKRR": {"run_access": null, "run_buff": 3, "permanent_access": null, "permanent_buff": 6},
-      "NACLON": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "NACLONS": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "NADIST": {"run_access": null, "run_buff": 3, "permanent_access": null, "permanent_buff": 6},
-      "NADRON": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "NAFLAK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "NAFTUR": {"run_access": null, "run_buff": 2, "permanent_access": null, "permanent_buff": 5},
-      "NAHAMM": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "NAINDP": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "NAIRDM": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "NALASR": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "NAMORT": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "NAPSIS": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "NASAM": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "NASCOM": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "NATBNK": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "NATRAP": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "NAUT": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "NMIN": {"run_access": null, "run_buff": 3, "permanent_access": null, "permanent_buff": 6},
-      "ORCA": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "ORCIN": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "OTRK": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "PANTHER": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "PCV": {"run_access": 9, "run_buff": null, "permanent_access": 38, "permanent_buff": null},
-      "PERUN": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "PHNT": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "PLAG": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "PROME": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "PROMEP": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "QTNK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "QUAD": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "QUETZ": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "QUICK": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "RACC": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "RAMW": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "RANGER": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "RAVA": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "REAP": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "REJU": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "REPU": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "REZNOV": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "RHAD": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "RIOT": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "ROACH": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "ROACHP": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "ROADR": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "ROBO": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "SALA": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "SAPC": {"run_access": null, "run_buff": 4, "permanent_access": null, "permanent_buff": 8},
-      "SBTR": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "SCAR": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "SCAV": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "SCHP": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "SCRG": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "SEAT": {"run_access": null, "run_buff": 3, "permanent_access": null, "permanent_buff": 6},
-      "SEITAAD": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "SEIZER": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "SENGINEER": {"run_access": null, "run_buff": 2, "permanent_access": null, "permanent_buff": 5},
-      "SENT": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "SHAD": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "SHADOW": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "SHARK": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "SHINBOT": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "SHK": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "SHOCK": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "SHRAY": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "SIBFIN": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "SICALI": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "SIEG": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "SIREN": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "SLED": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "SMCV": {"run_access": 9, "run_buff": null, "permanent_access": 38, "permanent_buff": null},
-      "SNIPE": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "SPY": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "SQD": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "SREF": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "STALKER": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "STARDUSTB": {"run_access": 12, "run_buff": 6, "permanent_access": 60, "permanent_buff": 12},
-      "STHOR": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "STING": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "STLN": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "STNK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "STORM": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "SUB": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "SUPR": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "SWLF": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "SWORD": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "SWPR": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "SYCKLE": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "SYNC": {"run_access": 4, "run_buff": 2, "permanent_access": 14, "permanent_buff": 5},
-      "TANY": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "TARCHIA": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "TARCHIAP": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "TELE": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "TENGU": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "TERA": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "TERROR": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "TESLA": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "THOR": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "TNKKIL": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "TRACTOR": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "TRIKE": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "TTNK": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "UNDER": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "URAGAN": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "V2": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "V3": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "VCARR": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "VENOM": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "VIPER": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "VIRUS": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "VOLKOV": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "WASP": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "WOLF": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "WORMQ": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "YABALL": {"run_access": null, "run_buff": 4, "permanent_access": null, "permanent_buff": 8},
-      "YAGGUN": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "YAHADE": {"run_access": 9, "run_buff": 5, "permanent_access": 38, "permanent_buff": 10},
-      "YAHCR": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "YAHCRE": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "YAMPSI": {"run_access": 3, "run_buff": 2, "permanent_access": 10, "permanent_buff": 5},
-      "YAMREF": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "YAPSYT": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8},
-      "YARAIL": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "YARIFT": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "YAVNMM": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "YDOG": {"run_access": 2, "run_buff": 2, "permanent_access": 8, "permanent_buff": 5},
-      "YENGINEER": {"run_access": null, "run_buff": 2, "permanent_access": null, "permanent_buff": 5},
-      "YHVR": {"run_access": null, "run_buff": 3, "permanent_access": null, "permanent_buff": 6},
-      "YMIN": {"run_access": null, "run_buff": 4, "permanent_access": null, "permanent_buff": 8},
-      "YTNK": {"run_access": 5, "run_buff": 3, "permanent_access": 18, "permanent_buff": 6},
-      "YUNRU": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "YURI": {"run_access": 6, "run_buff": 3, "permanent_access": 22, "permanent_buff": 6},
-      "YURIPR": {"run_access": 7, "run_buff": 4, "permanent_access": 27, "permanent_buff": 8},
-      "YURIX2": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "ZEP": {"run_access": 10, "run_buff": 5, "permanent_access": 44, "permanent_buff": 10},
-      "ZORB": {"run_access": 8, "run_buff": 4, "permanent_access": 32, "permanent_buff": 8}
+      "ABRM": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "ADOG": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "AEGIS": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "AERO": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "AHMV": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "AHVYBOT": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "AHVYBOT2": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "AKULA": {
+        "run_access": 11,
+        "run_buff": 6,
+        "permanent_access": 50,
+        "permanent_buff": 12
+      },
+      "AMC": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "AMCV": {
+        "run_access": 9,
+        "run_buff": null,
+        "permanent_access": 38,
+        "permanent_buff": null
+      },
+      "AMEDIC": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "APOC": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "ARCH": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "ARMA": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "ARMR": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "ARND": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "ARSO": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "ARTY": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "ASSN": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "ATESLA": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BANE": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BASIL": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "BASS": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "BEAG": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BFRT": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "BGGY": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BIKE": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "BLIGHT": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BLZZ": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BOID": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "BOREK": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "BORIS": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "BRUTE": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "BRUTM": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "BRUTS": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "BRUTV": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "BSUB": {
+        "run_access": 11,
+        "run_buff": 6,
+        "permanent_access": 50,
+        "permanent_buff": 12
+      },
+      "BURA": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "BUZZ": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "CAOS": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "CAPU": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "CARRIER": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "CBRIS": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "CHITZ": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "CHRP": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "CHRTNK": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "CLAIR": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "CLEG": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "CLNT": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "CMIN": {
+        "run_access": null,
+        "run_buff": 4,
+        "permanent_access": null,
+        "permanent_buff": 8
+      },
+      "CNTR": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "COMA": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "COND": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "CONF": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "COON": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "COVE": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "COYO": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "CRYO": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "CTNK": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "CYBO": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "CYCL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "CYCOM": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "CZEP": {
+        "run_access": 11,
+        "run_buff": 6,
+        "permanent_access": 50,
+        "permanent_buff": 12
+      },
+      "DBOAT": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "DESO": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "DESOR": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "DEST": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "DEVO": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "DHANDL": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "DISK": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "DIVER": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "DIVERP": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "DLPH": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "DOG": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "DRACO": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "DRED": {
+        "run_access": 11,
+        "run_buff": 6,
+        "permanent_access": 50,
+        "permanent_buff": 12
+      },
+      "DRIL": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "DRON": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "DTRUCK": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "DUNE": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "DUST": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "E1": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "E2": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "EDRN": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "EMPR": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "ENFO": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "ENGINEER": {
+        "run_access": null,
+        "run_buff": 2,
+        "permanent_access": null,
+        "permanent_buff": 5
+      },
+      "ETNK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "EUREKA": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "FAAVAL": {
+        "run_access": 11,
+        "run_buff": 6,
+        "permanent_access": 50,
+        "permanent_buff": 12
+      },
+      "FACOAT": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "FACOMP": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "FACONF": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "FAFILD": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "FAGUAR": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "FAINHI": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "FAMMIN": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "FARAIL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "FAREPR": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "FASONI": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "FDRON": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "FENGINEER": {
+        "run_access": null,
+        "run_buff": 2,
+        "permanent_access": null,
+        "permanent_buff": 5
+      },
+      "FLAKT": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "FLAMER": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "FMCV": {
+        "run_access": 9,
+        "run_buff": null,
+        "permanent_access": 38,
+        "permanent_buff": null
+      },
+      "FORTRESS": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "FOX": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "FV": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "GACPIL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "GACRYO": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "GAGAP": {
+        "run_access": 3,
+        "run_buff": null,
+        "permanent_access": 10,
+        "permanent_buff": null
+      },
+      "GAGUN": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "GAHYPE": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "GAOREP": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "GAPILL": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "GAPOST": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "GASTAS": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "GGI": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "GHOST": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "GHTNK": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "GHTNKP": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "GOTTER": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "GRAV": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "GRND": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "GRUMBLE": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "GTGCAN": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "GYRO": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "HARP": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "HARV": {
+        "run_access": null,
+        "run_buff": 4,
+        "permanent_access": null,
+        "permanent_buff": 8
+      },
+      "HBIRD": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "HCAN": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "HCRUIS": {
+        "run_access": 11,
+        "run_buff": 6,
+        "permanent_access": 50,
+        "permanent_buff": 12
+      },
+      "HEPH": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "HIJACKER": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "HOWI": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "HTK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "HTNK": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "HUNTR": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "HURR": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "ICBM": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "IDRAG": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "INIT": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "INTRUDER": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "ITNK": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "IVAN": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "JACKAL": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "JACKALP": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "JTNK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "JUMPJET": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "KAOS": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "KNIGHT": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "KRUKOV": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "KSNK": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "KTNK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "LCRF": {
+        "run_access": null,
+        "run_buff": 4,
+        "permanent_access": null,
+        "permanent_buff": 8
+      },
+      "LEVI": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "LIBRA": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "LIONH": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "LONGBO": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "LTNK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "LUNR": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "LUNRE": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "MAD": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "MADU": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "MAMM": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "MAMU": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "MAMUP": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "MANTA": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "MARA": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "MECHA": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "MEGA": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "MGTK": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "MIND": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "MORALES": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "MOTOR": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "MSA": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "MTNK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "MWF": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "NABNKR": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "NABNKRR": {
+        "run_access": null,
+        "run_buff": 3,
+        "permanent_access": null,
+        "permanent_buff": 6
+      },
+      "NACLON": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "NACLONS": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "NADIST": {
+        "run_access": null,
+        "run_buff": 3,
+        "permanent_access": null,
+        "permanent_buff": 6
+      },
+      "NADRON": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "NAFLAK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "NAFTUR": {
+        "run_access": null,
+        "run_buff": 2,
+        "permanent_access": null,
+        "permanent_buff": 5
+      },
+      "NAHAMM": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "NAINDP": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "NAIRDM": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "NALASR": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "NAMORT": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "NAPSIS": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "NAPSYB": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "NASAM": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "NASCOM": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "NATBNK": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "NATRAP": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "NAUT": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "NMIN": {
+        "run_access": null,
+        "run_buff": 3,
+        "permanent_access": null,
+        "permanent_buff": 6
+      },
+      "ORCA": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "ORCIN": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "OTRK": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "PANTHER": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "PCV": {
+        "run_access": 9,
+        "run_buff": null,
+        "permanent_access": 38,
+        "permanent_buff": null
+      },
+      "PERUN": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "PHNT": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "PLAG": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "PROME": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "PROMEP": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "QTNK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "QUAD": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "QUETZ": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "QUICK": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "RACC": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "RAMW": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "RANGER": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "RAVA": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "REAP": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "REJU": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "REPU": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "REZNOV": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "RHAD": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "RIOT": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "ROACH": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "ROACHP": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "ROADR": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "ROBO": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "SALA": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "SAPC": {
+        "run_access": null,
+        "run_buff": 4,
+        "permanent_access": null,
+        "permanent_buff": 8
+      },
+      "SBTR": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "SCAR": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "SCAV": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "SCHP": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "SCRG": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "SEAT": {
+        "run_access": null,
+        "run_buff": 3,
+        "permanent_access": null,
+        "permanent_buff": 6
+      },
+      "SEITAAD": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "SEIZER": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "SENGINEER": {
+        "run_access": null,
+        "run_buff": 2,
+        "permanent_access": null,
+        "permanent_buff": 5
+      },
+      "SENT": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "SHAD": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "SHADOW": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "SHARK": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "SHINBOT": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "SHK": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "SHOCK": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "SHRAY": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "SIBFIN": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "SICALI": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "SIEG": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "SIREN": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "SLED": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "SMCV": {
+        "run_access": 9,
+        "run_buff": null,
+        "permanent_access": 38,
+        "permanent_buff": null
+      },
+      "SNIPE": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "SPY": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "SQD": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "SREF": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "STALKER": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "STARDUSTB": {
+        "run_access": 12,
+        "run_buff": 6,
+        "permanent_access": 60,
+        "permanent_buff": 12
+      },
+      "STHOR": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "STING": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "STLN": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "STNK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "STORM": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "SUB": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "SUPR": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "SWLF": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "SWORD": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "SWPR": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "SYCKLE": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "SYNC": {
+        "run_access": 4,
+        "run_buff": 2,
+        "permanent_access": 14,
+        "permanent_buff": 5
+      },
+      "TANY": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "TARCHIA": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "TARCHIAP": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "TELE": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "TENGU": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "TERA": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "TERROR": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "TESLA": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "THOR": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "TNKKIL": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "TRACTOR": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "TRIKE": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "TTNK": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "UNDER": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "URAGAN": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "V2": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "V3": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "VCARR": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "VENOM": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "VIPER": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "VIRUS": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "VOLKOV": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "WASP": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "WOLF": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "WORMQ": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "YABALL": {
+        "run_access": null,
+        "run_buff": 4,
+        "permanent_access": null,
+        "permanent_buff": 8
+      },
+      "YAGGUN": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "YAHADE": {
+        "run_access": 9,
+        "run_buff": 5,
+        "permanent_access": 38,
+        "permanent_buff": 10
+      },
+      "YAHCR": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "YAHCRE": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "YAMPSI": {
+        "run_access": 3,
+        "run_buff": 2,
+        "permanent_access": 10,
+        "permanent_buff": 5
+      },
+      "YAMREF": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "YAPSYT": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      },
+      "YARAIL": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "YARIFT": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "YAVNMM": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "YDOG": {
+        "run_access": 2,
+        "run_buff": 2,
+        "permanent_access": 8,
+        "permanent_buff": 5
+      },
+      "YENGINEER": {
+        "run_access": null,
+        "run_buff": 2,
+        "permanent_access": null,
+        "permanent_buff": 5
+      },
+      "YHVR": {
+        "run_access": null,
+        "run_buff": 3,
+        "permanent_access": null,
+        "permanent_buff": 6
+      },
+      "YMIN": {
+        "run_access": null,
+        "run_buff": 4,
+        "permanent_access": null,
+        "permanent_buff": 8
+      },
+      "YTNK": {
+        "run_access": 5,
+        "run_buff": 3,
+        "permanent_access": 18,
+        "permanent_buff": 6
+      },
+      "YUNRU": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "YURI": {
+        "run_access": 6,
+        "run_buff": 3,
+        "permanent_access": 22,
+        "permanent_buff": 6
+      },
+      "YURIPR": {
+        "run_access": 7,
+        "run_buff": 4,
+        "permanent_access": 27,
+        "permanent_buff": 8
+      },
+      "YURIX2": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "ZEP": {
+        "run_access": 10,
+        "run_buff": 5,
+        "permanent_access": 44,
+        "permanent_buff": 10
+      },
+      "ZORB": {
+        "run_access": 8,
+        "run_buff": 4,
+        "permanent_access": 32,
+        "permanent_buff": 8
+      }
     },
     "permanent_upgrades": {
       "mission_reroll": {
         "display_name": "Mission Reroll",
         "max_level": 3,
-        "prices": [15, 30, 60],
+        "prices": [
+          15,
+          30,
+          60
+        ],
         "effects": {
           "rerolls_per_level": 1
         }
@@ -490,7 +2563,11 @@
       "mission_difficulty_assist": {
         "display_name": "Mission Difficulty Assist",
         "max_level": 3,
-        "prices": [20, 40, 80],
+        "prices": [
+          20,
+          40,
+          80
+        ],
         "effects": {
           "assists_per_level": 1
         }
@@ -498,7 +2575,13 @@
       "victory_run_coin_bonus": {
         "display_name": "Victory Ore Bonus",
         "max_level": 5,
-        "prices": [10, 20, 35, 55, 80],
+        "prices": [
+          10,
+          20,
+          35,
+          55,
+          80
+        ],
         "effects": {
           "run_coins_per_level": 1
         }
@@ -506,7 +2589,53 @@
       "starting_capital": {
         "display_name": "Starting Ore",
         "max_level": 45,
-        "prices": [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+        "prices": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
         "effects": {
           "run_coins_per_level": 1
         }
@@ -514,7 +2643,28 @@
       "mission_starting_credits": {
         "display_name": "Mission Starting Credits",
         "max_level": 20,
-        "prices": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        "prices": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
         "effects": {
           "credits_per_level": 1000
         }
@@ -522,7 +2672,13 @@
       "shop_discount": {
         "display_name": "Shop Discount",
         "max_level": 5,
-        "prices": [15, 30, 50, 75, 110],
+        "prices": [
+          15,
+          30,
+          50,
+          75,
+          110
+        ],
         "effects": {
           "ore_per_level": 1
         }
@@ -530,7 +2686,13 @@
       "extra_shop_stock": {
         "display_name": "Extra Shop Stock",
         "max_level": 5,
-        "prices": [15, 30, 50, 75, 110],
+        "prices": [
+          15,
+          30,
+          50,
+          75,
+          110
+        ],
         "effects": {
           "units_per_level": 1,
           "powers_per_level": 1
@@ -539,7 +2701,11 @@
       "expanded_loadout": {
         "display_name": "Expanded Loadout",
         "max_level": 3,
-        "prices": [25, 50, 90],
+        "prices": [
+          25,
+          50,
+          90
+        ],
         "effects": {
           "slots_per_level": 1
         }
@@ -547,7 +2713,9 @@
       "emergency_revival": {
         "display_name": "Emergency Revival",
         "max_level": 1,
-        "prices": [100],
+        "prices": [
+          100
+        ],
         "effects": {
           "revivals_per_run": 1
         }
@@ -555,7 +2723,11 @@
       "free_buff_token": {
         "display_name": "Free Buff Token",
         "max_level": 3,
-        "prices": [30, 60, 100],
+        "prices": [
+          30,
+          60,
+          100
+        ],
         "effects": {
           "tokens_per_level": 1
         }
@@ -563,7 +2735,13 @@
       "challenge_hunter": {
         "display_name": "Challenge Hunter",
         "max_level": 5,
-        "prices": [20, 35, 55, 80, 110],
+        "prices": [
+          20,
+          35,
+          55,
+          80,
+          110
+        ],
         "effects": {
           "run_coins_per_level": 1,
           "meta_coins_every_levels": 2
@@ -572,7 +2750,13 @@
       "recovery_salvage": {
         "display_name": "Recovery Salvage",
         "max_level": 5,
-        "prices": [20, 35, 55, 80, 110],
+        "prices": [
+          20,
+          35,
+          55,
+          80,
+          110
+        ],
         "effects": {
           "ore_per_level": 5,
           "maximum_saved_ore": 25
@@ -582,7 +2766,11 @@
         "display_name": "Starting Buff Draft",
         "purchasable": false,
         "max_level": 3,
-        "prices": [25, 50, 90],
+        "prices": [
+          25,
+          50,
+          90
+        ],
         "effects": {
           "buffs_per_level": 1
         }
@@ -590,7 +2778,13 @@
       "discount_specialization": {
         "display_name": "Global Shop Discount",
         "max_level": 5,
-        "prices": [20, 35, 55, 80, 110],
+        "prices": [
+          20,
+          35,
+          55,
+          80,
+          110
+        ],
         "effects": {
           "ore_per_level": 1
         }
@@ -598,7 +2792,10 @@
       "permanent_challenge_slots": {
         "display_name": "Permanent Challenge Slots",
         "max_level": 2,
-        "prices": [50, 100],
+        "prices": [
+          50,
+          100
+        ],
         "effects": {
           "slots_per_level": 1
         }
@@ -606,7 +2803,11 @@
       "coupon_book": {
         "display_name": "Coupon Book",
         "max_level": 3,
-        "prices": [25, 50, 90],
+        "prices": [
+          25,
+          50,
+          90
+        ],
         "effects": {
           "ore_per_level": 1
         }
@@ -614,7 +2815,9 @@
       "stock_lock": {
         "display_name": "Stock Lock",
         "max_level": 1,
-        "prices": [60],
+        "prices": [
+          60
+        ],
         "effects": {
           "locks_per_stage": 1
         }
@@ -622,7 +2825,9 @@
       "veteran_academy": {
         "display_name": "Veteran Academy",
         "max_level": 1,
-        "prices": [80],
+        "prices": [
+          80
+        ],
         "effects": {
           "veteran_loadout": 1
         }
@@ -630,7 +2835,11 @@
       "gem_dividend": {
         "display_name": "Gem Dividend",
         "max_level": 3,
-        "prices": [35, 70, 120],
+        "prices": [
+          35,
+          70,
+          120
+        ],
         "effects": {
           "ore_per_gem": 5
         }
@@ -638,7 +2847,9 @@
       "premium_supplier": {
         "display_name": "Premium Supplier",
         "max_level": 1,
-        "prices": [75],
+        "prices": [
+          75
+        ],
         "effects": {
           "minimum_stage": 3,
           "guaranteed_offers": 1
@@ -647,7 +2858,11 @@
       "random_tier_1_unlock": {
         "display_name": "Random Tier 1 Unlock",
         "max_level": 3,
-        "prices": [20, 40, 70],
+        "prices": [
+          20,
+          40,
+          70
+        ],
         "effects": {
           "unlocks_per_level": 1,
           "tier": 1
@@ -656,7 +2871,11 @@
       "random_tier_2_unlock": {
         "display_name": "Random Tier 2 Unlock",
         "max_level": 3,
-        "prices": [30, 60, 100],
+        "prices": [
+          30,
+          60,
+          100
+        ],
         "effects": {
           "unlocks_per_level": 1,
           "tier": 2
@@ -665,7 +2884,11 @@
       "random_tier_3_unlock": {
         "display_name": "Random Tier 3 Unlock",
         "max_level": 3,
-        "prices": [45, 90, 150],
+        "prices": [
+          45,
+          90,
+          150
+        ],
         "effects": {
           "unlocks_per_level": 1,
           "tier": 3
@@ -674,7 +2897,13 @@
       "global_production_speed": {
         "display_name": "Faster Production (All)",
         "max_level": 5,
-        "prices": [50, 75, 105, 140, 180],
+        "prices": [
+          50,
+          75,
+          105,
+          140,
+          180
+        ],
         "effects": {
           "speed_percent_per_level": 10
         }
@@ -686,7 +2915,10 @@
         "description": "Player and allied-helper production time is 30% shorter.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Faction Production Drill I", "Faction Production Drill I"],
+        "player_reward_ids": [
+          "Faction Production Drill I",
+          "Faction Production Drill I"
+        ],
         "buffs_allied_helpers": true
       },
       "tempest_support": {
@@ -694,154 +2926,242 @@
         "description": "Player receives Great Tempest with faster recharge and stronger damage for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Great Tempest Power", "Great Tempest Power Accelerated Recharge I", "Great Tempest Power Amplified Payload I"]
+        "player_reward_ids": [
+          "Great Tempest Power",
+          "Great Tempest Power Accelerated Recharge I",
+          "Great Tempest Power Amplified Payload I"
+        ]
       },
       "lightning_storm_support": {
         "title": "Lightning Storm Support",
         "description": "Player receives Lightning Storm with faster recharge and stronger damage for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Lightning Storm Power", "Lightning Storm Power Accelerated Recharge I", "Lightning Storm Power Amplified Payload I"]
+        "player_reward_ids": [
+          "Lightning Storm Power",
+          "Lightning Storm Power Accelerated Recharge I",
+          "Lightning Storm Power Amplified Payload I"
+        ]
       },
       "nuclear_missile_support": {
         "title": "Nuclear Missile Support",
         "description": "Player receives Nuclear Missile with faster recharge and stronger damage for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Nuclear Missile Power", "Nuclear Missile Power Accelerated Recharge I", "Nuclear Missile Power Amplified Payload I"]
+        "player_reward_ids": [
+          "Nuclear Missile Power",
+          "Nuclear Missile Power Accelerated Recharge I",
+          "Nuclear Missile Power Amplified Payload I"
+        ]
       },
       "psychic_dominator_support": {
         "title": "Psychic Dominator Support",
         "description": "Player receives Psychic Dominator with faster recharge and stronger damage for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Psychic Dominator Power", "Psychic Dominator Power Accelerated Recharge I", "Psychic Dominator Power Amplified Payload I"]
+        "player_reward_ids": [
+          "Psychic Dominator Power",
+          "Psychic Dominator Power Accelerated Recharge I",
+          "Psychic Dominator Power Amplified Payload I"
+        ]
       },
       "airborne_support": {
         "title": "Airborne Support Drop",
         "description": "Player receives Airborne with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Airborne Power", "Airborne Power Reinforced Payload I", "Airborne Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Airborne Power",
+          "Airborne Power Reinforced Payload I",
+          "Airborne Power Accelerated Recharge I"
+        ]
       },
       "bloodhounds_support": {
         "title": "Bloodhounds Support Drop",
         "description": "Player receives Bloodhounds with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Bloodhounds Power", "Bloodhounds Power Reinforced Payload I", "Bloodhounds Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Bloodhounds Power",
+          "Bloodhounds Power Reinforced Payload I",
+          "Bloodhounds Power Accelerated Recharge I"
+        ]
       },
       "ultra_miner_support": {
         "title": "Ultra Miner Support Drop",
         "description": "Player receives Ultra Miner with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Ultra Miner Power", "Ultra Miner Power Reinforced Payload I", "Ultra Miner Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Ultra Miner Power",
+          "Ultra Miner Power Reinforced Payload I",
+          "Ultra Miner Power Accelerated Recharge I"
+        ]
       },
       "paladin_support": {
         "title": "Paladin Support Drop",
         "description": "Player receives Paladin Aid with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Paladin Aid Power", "Paladin Aid Power Reinforced Payload I", "Paladin Aid Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Paladin Aid Power",
+          "Paladin Aid Power Reinforced Payload I",
+          "Paladin Aid Power Accelerated Recharge I"
+        ]
       },
       "repair_drone_support": {
         "title": "Repair Drone Support Drop",
         "description": "Player receives Repair Drone with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Repair Drone Power", "Repair Drone Power Reinforced Payload I", "Repair Drone Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Repair Drone Power",
+          "Repair Drone Power Reinforced Payload I",
+          "Repair Drone Power Accelerated Recharge I"
+        ]
       },
       "tank_drop_support": {
         "title": "Tank Support Drop",
         "description": "Player receives Tank Drop with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Tank Drop Power", "Tank Drop Power Reinforced Payload I", "Tank Drop Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Tank Drop Power",
+          "Tank Drop Power Reinforced Payload I",
+          "Tank Drop Power Accelerated Recharge I"
+        ]
       },
       "motor_ambush_support": {
         "title": "Motor Ambush Support",
         "description": "Player receives Motor Ambush with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Motor Ambush Power", "Motor Ambush Power Reinforced Payload I", "Motor Ambush Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Motor Ambush Power",
+          "Motor Ambush Power Reinforced Payload I",
+          "Motor Ambush Power Accelerated Recharge I"
+        ]
       },
       "terror_drop_support": {
         "title": "Terror Drone Support Drop",
         "description": "Player receives Terror Drop with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Terror Drop Power", "Terror Drop Power Reinforced Payload I", "Terror Drop Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Terror Drop Power",
+          "Terror Drop Power Reinforced Payload I",
+          "Terror Drop Power Accelerated Recharge I"
+        ]
       },
       "drakuv_support": {
         "title": "Drakuv Support Drop",
         "description": "Player receives Drakuv with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Drakuv Prison Vehicle Power", "Drakuv Prison Vehicle Power Reinforced Payload I", "Drakuv Prison Vehicle Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Drakuv Prison Vehicle Power",
+          "Drakuv Prison Vehicle Power Reinforced Payload I",
+          "Drakuv Prison Vehicle Power Accelerated Recharge I"
+        ]
       },
       "repair_drones_support": {
         "title": "Repair Drones Support Drop",
         "description": "Player receives Repair Drones with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Repair Drones Power", "Repair Drones Power Reinforced Payload I", "Repair Drones Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Repair Drones Power",
+          "Repair Drones Power Reinforced Payload I",
+          "Repair Drones Power Accelerated Recharge I"
+        ]
       },
       "libra_clones_support": {
         "title": "Libra Clones Support Drop",
         "description": "Player receives Libra Clones with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Libra Clones Power", "Libra Clones Power Reinforced Payload I", "Libra Clones Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Libra Clones Power",
+          "Libra Clones Power Reinforced Payload I",
+          "Libra Clones Power Accelerated Recharge I"
+        ]
       },
       "ruiner_support": {
         "title": "Ruiner Support Drop",
         "description": "Player receives Ruiner with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Ruiner Power", "Ruiner Power Reinforced Payload I", "Ruiner Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Ruiner Power",
+          "Ruiner Power Reinforced Payload I",
+          "Ruiner Power Accelerated Recharge I"
+        ]
       },
       "hijackers_support": {
         "title": "Hijackers Support Drop",
         "description": "Player receives Hijackers with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Hijackers Power", "Hijackers Power Reinforced Payload I", "Hijackers Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Hijackers Power",
+          "Hijackers Power Reinforced Payload I",
+          "Hijackers Power Accelerated Recharge I"
+        ]
       },
       "sweeper_support": {
         "title": "Sweeper Support Drop",
         "description": "Player receives Sweeper Drop with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Sweeper Drop Power", "Sweeper Drop Power Reinforced Payload I", "Sweeper Drop Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Sweeper Drop Power",
+          "Sweeper Drop Power Reinforced Payload I",
+          "Sweeper Drop Power Accelerated Recharge I"
+        ]
       },
       "decoy_team_support": {
         "title": "Decoy Team Support",
         "description": "Player receives Decoy Team with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Decoy Team Power", "Decoy Team Power Reinforced Payload I", "Decoy Team Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Decoy Team Power",
+          "Decoy Team Power Reinforced Payload I",
+          "Decoy Team Power Accelerated Recharge I"
+        ]
       },
       "decoy_squadron_support": {
         "title": "Decoy Squadron Support",
         "description": "Player receives Decoy Squadron with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Decoy Squadron Power", "Decoy Squadron Power Reinforced Payload I", "Decoy Squadron Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Decoy Squadron Power",
+          "Decoy Squadron Power Reinforced Payload I",
+          "Decoy Squadron Power Accelerated Recharge I"
+        ]
       },
       "engineering_team_support": {
         "title": "Engineering Team Support Drop",
         "description": "Player receives Engineering Team with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Engineering Team Power", "Engineering Team Power Reinforced Payload I", "Engineering Team Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Engineering Team Power",
+          "Engineering Team Power Reinforced Payload I",
+          "Engineering Team Power Accelerated Recharge I"
+        ]
       },
       "moon_reinforcements_support": {
         "title": "Moon Reinforcements",
         "description": "Player receives Moon Reinforcements with one extra payload and faster recharge for this mission.",
         "bonus_run_coins": 1,
         "bonus_meta_coins": 1,
-        "player_reward_ids": ["Moon Reinforcements Power", "Moon Reinforcements Power Reinforced Payload I", "Moon Reinforcements Power Accelerated Recharge I"]
+        "player_reward_ids": [
+          "Moon Reinforcements Power",
+          "Moon Reinforcements Power Reinforced Payload I",
+          "Moon Reinforcements Power Accelerated Recharge I"
+        ]
       },
       "armored_vanguard": {
         "title": "Armored AI Vanguard",
