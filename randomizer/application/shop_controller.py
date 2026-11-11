@@ -705,12 +705,24 @@ class ShopController(ShopPolishController):
         return super().randomize_unit_access_enabled()
 
     def active_standard_starter_families(self):
+        faction = None
         run = self._shop_context_run()
         if run is not None:
-            return tuple(STANDARD_STARTER_FAMILIES_BY_CAMPAIGN.get(
-                run.campaign_filter,
-                ('allies', 'soviets', 'epsilon'),
-            ))
+            faction = (
+                run.reward_settings.get('shop_faction_filter')
+                or run.campaign_filter
+            )
+        if not faction:
+            context = self.__dict__.get('_seed_generation_context') or {}
+            faction = context.get('campaign_filter')
+        if not faction and hasattr(self, 'shop_campaign_filter'):
+            faction = self.shop_campaign_filter()
+
+        if faction and faction != 'All Campaigns':
+            from randomizer.shop.active import _SHOP_STARTER_FAMILIES
+            if faction in _SHOP_STARTER_FAMILIES:
+                return _SHOP_STARTER_FAMILIES[faction]
+
         return super().active_standard_starter_families()
 
     def share_chaos_role_buffs_enabled(self):

@@ -252,7 +252,8 @@ class GenerationSettings:
             for unit_id in settings.get('excluded_unit_access_ids', [])
             for variant_id in linked_buff_variant_ids(unit_id)
         }
-        if self.active_reward_mode() == 'Chaos':
+        families = self.active_standard_starter_families()
+        if self.active_reward_mode() == 'Chaos' and len(families) > 1:
             rng = random.Random(f'{seed}:starting-tier-one')
             return list(random_chaos_tier_one_unit_ids(
                 rng,
@@ -260,7 +261,7 @@ class GenerationSettings:
             ))
 
         selected = []
-        for family in self.active_standard_starter_families():
+        for family in families:
             selected.extend(select_tier_one_unit_variants(
                 random.Random(
                     f'{seed}:starting-tier-one-standard:{family}'
@@ -372,7 +373,8 @@ class GenerationSettings:
             for unit_id in settings.get('excluded_unit_access_ids', [])
             for variant_id in linked_buff_variant_ids(unit_id)
         }
-        if self.active_reward_mode() == 'Chaos':
+        families = self.active_standard_starter_families()
+        if self.active_reward_mode() == 'Chaos' and len(families) > 1:
             if seed is None:
                 seed = self.seed_var.get() if hasattr(self, 'seed_var') else ''
             rng = random.Random(f'{seed}:starting-tier-one-defenses')
@@ -380,16 +382,18 @@ class GenerationSettings:
                 rng,
                 excluded_unit_ids=excluded_ids,
             ))
-        families = self.active_standard_starter_families()
         marker = tier_one_defense_ids(families)
         eligible_ids = expanded_tier_one_defense_ids(
             marker,
             families=families,
             include_foehn=(
-                getattr(self, 'native_challenge_rewards_enabled', lambda: False)()
-                and str((self.__dict__.get('_seed_generation_context') or {}).get(
-                    'campaign_filter', (self.state or {}).get('campaign_filter', '')
-                )) == 'Foehn'
+                'foehn' in families
+                or (
+                    getattr(self, 'native_challenge_rewards_enabled', lambda: False)()
+                    and str((self.__dict__.get('_seed_generation_context') or {}).get(
+                        'campaign_filter', (self.state or {}).get('campaign_filter', '')
+                    )) == 'Foehn'
+                )
             ),
         )
         return list(marker) if eligible_ids - excluded_ids else []
