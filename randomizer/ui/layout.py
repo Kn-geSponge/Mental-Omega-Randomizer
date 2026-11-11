@@ -13,6 +13,7 @@ from ._builder_dependencies import (
     tk,
     ttk,
 )
+from .config import PLAYER_COLORS
 from .shop import _tree
 from .coop import build_coop_controls
 from .viewport import ScrollableViewport
@@ -636,6 +637,10 @@ def _build_right_panel(self, main_frame):
         (
             'Shop stock / loadout faction', 'shop_faction_pool_combo',
             self.shop_faction_pool_var, self.shop_faction_pool_options,
+        ),
+        (
+            'Player color', 'shop_player_color_combo',
+            self.player_color_var, PLAYER_COLORS,
         ),
     )
     for row, (label, attribute, variable, values) in enumerate(
