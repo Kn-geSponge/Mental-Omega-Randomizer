@@ -705,16 +705,12 @@ class ShopController(ShopPolishController):
         return super().randomize_unit_access_enabled()
 
     def active_standard_starter_families(self):
-        faction = None
-        run = self._shop_context_run()
-        if run is not None:
-            faction = (
-                run.reward_settings.get('shop_faction_filter')
-                or run.campaign_filter
-            )
+        context = self.__dict__.get('_seed_generation_context') or {}
+        faction = context.get('campaign_filter')
         if not faction:
-            context = self.__dict__.get('_seed_generation_context') or {}
-            faction = context.get('campaign_filter')
+            run = self._shop_context_run()
+            if run is not None:
+                faction = run.reward_settings.get('shop_faction_filter')
         if not faction and hasattr(self, 'shop_campaign_filter'):
             faction = self.shop_campaign_filter()
 
