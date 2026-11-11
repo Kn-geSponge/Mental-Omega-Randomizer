@@ -13,7 +13,7 @@ from ._builder_dependencies import (
     tk,
     ttk,
 )
-from .config import PLAYER_COLORS
+from .config import EVA_VOICE_CHOICES, PLAYER_COLORS
 from .shop import _tree
 from .coop import build_coop_controls
 from .viewport import ScrollableViewport
@@ -642,6 +642,10 @@ def _build_right_panel(self, main_frame):
             'Player color', 'shop_player_color_combo',
             self.player_color_var, PLAYER_COLORS,
         ),
+        (
+            'EVA voice', 'shop_eva_voice_combo',
+            self.eva_voice_var, EVA_VOICE_CHOICES,
+        ),
     )
     for row, (label, attribute, variable, values) in enumerate(
         shop_run_options, start=6
@@ -661,6 +665,10 @@ def _build_right_panel(self, main_frame):
         combo.bind('<MouseWheel>', self.on_settings_control_mousewheel, add='+')
     self.shop_faction_pool_combo.bind(
         '<<ComboboxSelected>>', self.on_shop_faction_pool_changed, add='+'
+    )
+    WidgetTooltip(
+        self.shop_eva_voice_combo,
+        'Uses one announcer for the whole mission. Random is deterministic for the seed and mission.',
     )
     self.shop_progression_mode_combo.bind(
         '<MouseWheel>', self.on_settings_control_mousewheel, add='+'
