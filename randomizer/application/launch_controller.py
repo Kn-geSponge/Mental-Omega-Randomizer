@@ -777,10 +777,7 @@ class LaunchController:
         command = [
             str(GAME_LAUNCHER_EXE),
             GAME_EXE.name,
-            '-SPAWN',
-            '-CD',
-            '-SPEEDCONTROL',
-            '-LOG',
+            '--args=-SPAWN -CD -SPEEDCONTROL -LOG -Inheritance',
         ]
         if sys.platform == 'win32':
             return command
