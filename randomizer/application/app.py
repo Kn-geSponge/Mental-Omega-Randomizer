@@ -59,12 +59,14 @@ from .archipelago_controller import ArchipelagoController
 from .coop_controller import CoopController
 from .challenge_controller import ChallengeController
 from .final_fortress_controller import FinalFortressController
+from .conquest_controller import ConquestController
 
 
 from .progression_battles import ProgressionBattlesController
 
 
 class LauncherApp(
+    ConquestController,
     ProgressionBattlesController,
     UpdateController,
     FinalFortressController,
@@ -576,9 +578,12 @@ class LauncherApp(
         self._enemy_buffs_view_dirty = True
         self.busy_depth = 0
         self.ui_queue = queue.Queue()
+        from randomizer.ui.cameos import bind_cameo_loader
+        bind_cameo_loader(self)
         self.initialize_challenge_defaults()
         self.initialize_shop_controller()
         self.initialize_final_fortress_controller()
+        self.initialize_conquest()
         self.cleanup_generated_root_maps()
         self.disable_generated_rules_for_client()
 
@@ -594,14 +599,16 @@ class LauncherApp(
         self.run_in_background(
             'Loading randomizer…',
             'Reading missions and restoring the current run. Please wait.',
-            lambda: self.load_missions(
+            lambda: (self.load_missions(
                 category=category, country=country, player_count=player_count,
-            ),
+            ), self.load_initial_fortress_state()),
             self.finish_initial_load,
             self.handle_initial_load_error,
         )
 
-    def finish_initial_load(self, missions):
+    def finish_initial_load(self, result):
+        missions, fortress = result
+        self.apply_initial_fortress_state(fortress)
         self.apply_missions(missions)
         self.refresh_progress_view()
         self.refresh_shop_mode()

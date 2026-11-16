@@ -67,10 +67,7 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
                   or bool(getattr(self, '_coop_busy', False))
                   or active_game or self.shop_launch_active()
                   or self.gameplay_settings_locked())
-        for name in ('progression_mode_combo', 'shop_progression_mode_combo'):
-            widget = getattr(self, name, None)
-            if widget is not None:
-                widget.configure(state='disabled' if locked else 'readonly')
+        self.refresh_game_mode_navigation()
         for widget in (self.coop_mode_check, self.shop_coop_mode_check):
             widget.configure(state='disabled' if locked or not available else 'normal')
         for widget in (self.coop_player_count_combo, self.shop_coop_player_count_combo):
@@ -274,6 +271,11 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
         was_guest = lobby.role == 'guest'
         lobby.close()
         self._coop_lobby = None
+        attempt = getattr(self, '_coop_shop_attempt', None)
+        if attempt and not attempt['settled']:
+            self.interrupt_coop_shop_attempt('Co-op disconnected before a verified team result')
+            attempt['settled'] = True
+        self.finish_progression_launch_context()
         self.__dict__.pop('_coop_progression_mode', None)
         self._coop_peer_options = None
         self._coop_shop_ready = False
@@ -298,6 +300,7 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
         if not getattr(self, '_coop_connection_error', False):
             self._set_coop_status('Disconnected.')
         self._record_coop_log('Co-op lobby disconnected.')
+        self.recover_idle_shop_mission()
         self.refresh_coop_controls()
         if self.shop_mode_selected():
             self.refresh_shop_mode()
@@ -346,6 +349,7 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
                 elif event[0] == 'message':
                     self._handle_coop_message(lobby, event[1])
                 elif event[0] == 'error':
+                    self.interrupt_coop_shop_attempt('Co-op control connection lost')
                     self._record_coop_log('Co-op lobby: ' + event[1], error=True)
                     self._coop_connection_error = True
                     self._set_coop_status('Disconnected: ' + event[1])
@@ -620,6 +624,8 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
         self._coop_active_game_code = code
         self._coop_active_game_role = role
         self._coop_active_game_token = session_token
+        if self.shop_launch_active() and not challenge:
+            self.begin_coop_shop_attempt(code, session_token)
         self._coop_challenge_launch_snapshot = (
             self.capture_challenge_run_identity()
             if challenge else None
@@ -731,6 +737,7 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
             self._coop_busy = False
             self.refresh_coop_controls()
             if self.shop_mode_selected():
+                self.report_coop_shop_attempt(None)
                 self.finish_progression_launch_context()
             self._record_coop_log('Co-op game failed: ' + event[1], error=True)
             self._record_coop_log(event[2], error=True)
@@ -769,6 +776,7 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
             self._coop_busy = False
             self.refresh_coop_controls()
             if self.shop_mode_selected():
+                self.report_coop_shop_attempt(None)
                 self.finish_progression_launch_context()
             self._record_coop_log('Co-op game launch failed: ' + str(exc), error=True)
             self.disable_generated_rules_for_client()
@@ -778,6 +786,10 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
             messagebox.showerror('Co-op', self._coop_safe_message(exc))
             return
         self.active_game_process = process
+        attempt = getattr(self, '_coop_shop_attempt', None)
+        if self.shop_launch_active() and attempt and not attempt['settled']:
+            attempt['launched'] = True
+            attempt['watch'] = getattr(self, '_shop_interruption_watch', None)
         self._coop_shutdown_watch = shutdown_watch
         if challenge_watch is not None:
             self._coop_victory_watch = {
@@ -785,7 +797,7 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
                 'run_snapshot': self._coop_challenge_launch_snapshot,
                 'detected': False,
             }
-        elif result['role'] == 'host':
+        elif self.shop_launch_active() or result['role'] == 'host':
             try:
                 with DEBUG_LOG.open('rb') as handle:
                     log_stat = os.fstat(handle.fileno())
@@ -801,6 +813,8 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
                 'file_id': (log_stat.st_dev, log_stat.st_ino) if log_stat else None,
                 'anchor': log_anchor,
                 'detected': False,
+                'defeated': False,
+                'tail': '',
             }
         else:
             self._coop_victory_watch = None
@@ -811,6 +825,9 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
 
     def _poll_coop_game(self):
         self._scan_coop_victory()
+        reason = self.shop_mission_interruption_reason() if self.shop_launch_active() else ''
+        if reason:
+            self.interrupt_coop_shop_attempt(reason)
         process = self.active_game_process
         shutdown_watch = getattr(self, '_coop_shutdown_watch', None)
         if shutdown_watch is not None:
@@ -831,7 +848,10 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
         self.refresh_coop_controls()
         self._record_coop_log('Co-op game process exited.')
         watch = getattr(self, '_coop_victory_watch', None)
-        if watch and not watch['detected'] and not self.is_mission_complete(watch['code']):
+        attempt = getattr(self, '_coop_shop_attempt', None)
+        if self.shop_launch_active() and attempt and attempt['launched']:
+            self.report_coop_shop_attempt(watch)
+        elif watch and not watch['detected'] and not self.is_mission_complete(watch['code']):
             if 'native' in watch:
                 outcome = watch['native'].result
                 self._record_coop_log(
@@ -841,19 +861,21 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
             elif (self.shop_mode_selected() and self.coop_mode_var.get()
                     and getattr(self, '_coop_active_game_role', '') == 'host'
                     and DEBUG_LOG.exists() and not watch.get('log_error')):
-                if self.record_failed_mission_attempt(
-                        watch['code'], 'Co-op game closed without victory'):
-                    self._record_coop_log('Co-op Shop attempt recorded as failed for both players.')
+                self.record_interrupted_mission_attempt(watch['code'],
+                    'Co-op result handshake unavailable; outcome unverified')
             else:
                 self._record_coop_log('No co-op victory marker detected. Host can record a won mission manually.')
         self._coop_victory_watch = None
         if self.shop_mode_selected() and self.coop_mode_var.get():
             self.finish_progression_launch_context()
         lobby = getattr(self, '_coop_lobby', None)
-        self._set_coop_status(
-            'Game ended. Host may select another map.' if lobby and lobby.connected else
-            'Game ended. Lobby disconnected; click Disconnect before reconnecting.'
-        )
+        if attempt and attempt['launched'] and not attempt['settled'] and lobby and lobby.connected:
+            self._set_coop_status('Waiting for the other player to close the game; Shop run remains protected.')
+        else:
+            self._set_coop_status(
+                'Game ended. Host may select another map.' if lobby and lobby.connected else
+                'Game ended. Lobby disconnected; click Disconnect before reconnecting.'
+            )
         if getattr(self, '_close_after_game', False):
             self.disconnect_coop()
             self.shutdown_archipelago()
@@ -889,7 +911,7 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
                     self._record_coop_log(f'Challenge native victory verified for {code}.')
                     self.unlock_mission_check(code, 'victory', 'Challenge in-game victory')
             return
-        if not watch or watch['detected'] or not DEBUG_LOG.exists():
+        if not watch or (watch['detected'] and not self.shop_launch_active()) or not DEBUG_LOG.exists():
             return
         try:
             with DEBUG_LOG.open('rb') as handle:
@@ -914,12 +936,26 @@ class CoopController(CoopShopController, ChallengeLobbyController, CoopConnectio
             watch['log_error'] = True
             self._record_coop_log('Co-op victory log read failed: ' + str(exc), error=True)
             return
-        if not any(watch['marker'] in line for line in data.decode(
-                'utf-8', errors='ignore').splitlines()):
+        text = watch.get('tail', '') + data.decode('utf-8', errors='ignore')
+        interruption = getattr(self, '_shop_interruption_watch', None)
+        if interruption is not None and interruption.observe_text(text):
+            self.interrupt_coop_shop_attempt(interruption.reason)
+            return
+        parts = text.split('\n')
+        watch['tail'] = parts.pop()
+        process = self.active_game_process
+        if process is None or process.poll() is not None:
+            parts.append(watch.pop('tail', ''))
+        from randomizer.coop.victory import defeat_marker_name
+        loss_marker = defeat_marker_name(watch['code'].lower())
+        if any(f"Creating a new team named '{loss_marker}'." in line for line in parts):
+            watch['defeated'] = True
+        if not any(watch['marker'] in line for line in parts):
             return
         watch['detected'] = True
         code = watch['code']
         if self.is_mission_complete(code):
             return
         self._record_coop_log(f'Co-op victory marker detected for {code}.')
-        self.unlock_mission_check(code, 'victory', 'Co-op in-game victory')
+        if not self.shop_launch_active():
+            self.unlock_mission_check(code, 'victory', 'Co-op in-game victory')

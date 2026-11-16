@@ -4,6 +4,26 @@
 
 # Mental Omega Randomizer Launcher
 
+## Conquest game modes
+
+Choose **Conquest → New campaign → Game mode** before starting a campaign:
+
+- **Capture all enemy nodes:** capture every enemy-owned territory; neutral nodes are optional.
+- **Capture HQ:** capture the enemy HQ; the human team loses when every friendly HQ is held by the enemy.
+- **Most nodes at turn limit:** choose a final round from 1 to 10,000 (default 20). Count team and enemy territories after every human and the enemy have taken their turns. A tie extends play by complete rounds until one side leads.
+- **Capture and hold highlighted nodes:** choose 3–5 objectives and hold them together for 3–5 full rounds. Magenta diamonds mark objectives on the map. Losing any objective resets the continuous hold. The capture round does not count as a full held round.
+
+Human teammates pool their territory count and objective ownership for victory,
+regardless of territory-bonus sharing. A side with no owned territories loses in
+every mode. Objectives use the campaign seed and prefer non-HQ nodes; small boards
+with too few non-HQ nodes may also highlight HQs. The campaign header and node
+inspector show progress. The strategic AI pursues HQs or highlighted objectives
+in the corresponding modes.
+
+Saved campaigns keep their selected rules and hold progress. Existing saves
+without a selected mode keep their original HQ-and-army elimination rule. All
+co-op players must use updated launchers; older Conquest protocols are rejected.
+
 [![Security checks](https://github.com/Heinki/Mental-Omega-Randomizer/actions/workflows/security.yml/badge.svg)](https://github.com/Heinki/Mental-Omega-Randomizer/actions/workflows/security.yml)
 
 A Windows campaign randomizer for Mental Omega with standalone and Archipelago
@@ -16,6 +36,25 @@ Native Mental Omega challenges support randomized rewards, an optional local AI
 teammate, and synchronized two-human play. Choose houses and colors before each
 match without resetting the run. See the [challenge guide](CHALLENGES_TESTING.md)
 for setup, supported modes, and validation limits in version 1.45.
+
+## Shop interruption recovery
+
+Crashes, co-op desyncs, launch errors, and exits without a verified result
+preserve the active Shop stage, Ore, purchases, original mission offers, and
+Emergency Revivals. After the game closes, retry the same mission or select
+another original offer. Reopening the launcher also recovers an unresolved
+mission commitment automatically. Recovery awards no victory rewards. Verified
+defeats still follow the normal failure and Emergency Revival rules. Update
+both players' launchers before co-op play.
+
+Co-op Shop results now wait until every player's game has closed. A fresh engine
+SYNC/EXCEPT diagnostic, an explicit desync/reconnection error, a missing result,
+or conflicting peer results preserves the stage instead of ending the run or
+spending an Emergency Revival. Old diagnostic files are ignored. Close every
+player's game, then retry the same mission or choose another original offer.
+Every player must update: older lobby protocols are rejected because they cannot
+report interruptions safely. This protects progression; it does not claim to
+prevent every engine desync.
 
 ## Disclaimer
 
@@ -214,6 +253,24 @@ The report is written to `RandomizerLauncherData\self_check.json`.
 | `build_all.ps1` | Local launcher + tracked APWorld build workflow |
 
 Packaged writable data lives under `RandomizerLauncherData`; source-mode data lives under `RandomizerLauncher`.
+For run buffs, **Buy Max** sits beside **Purchase Selected** in both the
+Current Run Shop and Current Loadout upgrade view. It buys the selected
+buff until the next stack is unaffordable or the stack limit is reached.
+Each stack uses the normal Ore price, discounts, coupons, and available
+Free Buff Tokens; the complete purchase is saved once.
+
+Unit and building cost upgrades retain a minimum rules cost of 1 credit
+for types whose native cost is positive. This avoids zero-cost engine
+issues with veterancy and the harvester included with a Refinery. Native
+zero-cost utility types remain free. Existing upgrade stacks apply this
+floor when a mission is relaunched; existing in-mission saves retain
+their old rules.
+
+In Shop Mode, select a permanent unit or power buff and click **Buy Max**
+to buy all affordable stacks in one purchase. Purchases stop at the buff
+stack limit and leave any unspent Gems. Permanent buff purchases are
+available only between runs; the arrows still buy or refund one stack.
+
 Permanent Gems, permanent unit/power unlocks, and their buffs live in
 `shop_profile.json`; Run Ore, purchases, and mission state live
 in `shop_run.json`. Permanent powers activate automatically in future Shop
@@ -249,3 +306,7 @@ Mental Omega Discord Invite link : https://discord.com/invite/KpJzhWY
 See [Grid progression and mission access](GRID_PROGRESSION.md) for required victory missions,
 AP unlock modes, the frozen whole-board currency budget, persistence, protocol
 compatibility, and the manual gameplay checklist.
+
+## Conquest mode
+
+Open **Game Modes → Conquest** for the DTA-style territory campaign with native faction armies and battles. See [CONQUEST.md](CONQUEST.md) for engine adaptations, omitted perks and replacement suggestions.

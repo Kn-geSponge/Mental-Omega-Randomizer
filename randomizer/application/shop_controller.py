@@ -5,6 +5,7 @@ from dataclasses import replace
 import uuid
 import tkinter as tk
 from tkinter import messagebox
+from randomizer.core.paths import DEBUG_LOG, GAME_ROOT
 
 from ._dependencies import (
     BUFF_TARGETS,
@@ -27,6 +28,7 @@ from randomizer.rewards.display import (
 )
 from randomizer.shop.active import (
     active_shop_rewards,
+    active_shop_permanent_buffs,
     active_shop_starter_defense_ids,
     active_shop_starter_unit_ids,
     active_shop_tech_ids,
@@ -210,6 +212,8 @@ class ShopController(ShopPolishController):
         self._shop_launch_run = None
         self._shop_launch_victory_key = None
         self._shop_launch_mission_pool = ()
+        self._shop_interruption_watch = None
+        self.recover_idle_shop_mission()
 
     def shop_mode_selected(self):
         return self.progression_mode_var.get() == 'Shop Mode'
@@ -357,6 +361,7 @@ class ShopController(ShopPolishController):
         )
         self.shop_service = ShopProgressionService(self.shop_repository)
         self.shop_profile, self.shop_run = self.shop_repository.load()
+        self.recover_idle_shop_mission()
 
     def refresh_shop_settings_controls(self):
         if not hasattr(self, 'shop_setup_start_button'):
@@ -368,9 +373,7 @@ class ShopController(ShopPolishController):
             self.shop_run is not None
             and self.shop_run.status is RunStatus.ACTIVE
         )
-        self.shop_progression_mode_combo.configure(
-            state='disabled' if locked else 'readonly'
-        )
+        self.refresh_game_mode_navigation()
         self.shop_seed_entry.configure(
             state='disabled' if locked or active else 'normal'
         )
@@ -669,7 +672,7 @@ class ShopController(ShopPolishController):
                 *run.random_starting_unit_unlocks,
                 *(
                     item.reward_id
-                    for item in run.permanent_buffs_snapshot
+                    for item in active_shop_permanent_buffs(run)
                     for _index in range(item.stacks)
                 ),
                 *(item.reward_id for item in run.run_purchases),
@@ -1727,8 +1730,12 @@ class ShopController(ShopPolishController):
         if not self.shop_launch_active():
             return super().unlock_mission_check(code, check_id, source)
         code = str(code or '').upper()
+        if check_id == 'defeat':
+            return self.record_failed_mission_attempt(code, 'Verified in-game defeat')
         if check_id != 'victory':
             return False
+        if self.shop_mission_interruption_reason():
+            return False  # A desync can emit misleading native winner/loser rows.
         run = self.shop_repository.load_run()
         if (
             run is None
@@ -1782,14 +1789,71 @@ class ShopController(ShopPolishController):
         self.refresh_shop_mode()
         return True
 
+    def begin_shop_mission_interruption_watch(self):
+        """Snapshot engine diagnostics before this attempt's process is spawned."""
+        if self.shop_launch_active():
+            from randomizer.core.game_interruption import GameInterruptionWatch
+            self._shop_interruption_watch = GameInterruptionWatch(GAME_ROOT, DEBUG_LOG)
+        return getattr(self, '_shop_interruption_watch', None)
+
+    def shop_mission_interruption_reason(self):
+        watch = getattr(self, '_shop_interruption_watch', None)
+        return watch.poll() if watch is not None else ''
+
+    def recover_idle_shop_mission(self):
+        """Recover a persisted commitment after launcher/preparation interruption."""
+        process = getattr(self, 'active_game_process', None)
+        if (self.shop_launch_active() or (process and process.poll() is None)
+                or getattr(self, '_coop_games_running', None)
+                or getattr(self, '_coop_pending_launch', None)
+                or getattr(self, '_coop_busy', False)
+                or getattr(self, '_coop_building_map', False)):
+            return
+        guest = getattr(self, 'coop_guest_connected', lambda: False)()
+        if guest:
+            return  # A connected guest follows the host's durable result.
+        run = self.shop_repository.load_run()
+        if run is not None and run.status is RunStatus.ACTIVE and run.mission_committed:
+            self.shop_run = self.shop_service.interrupt_mission(
+                run.selected_mission_code, run_id=run.run_id, stage=run.stage,
+            )
+
+    def record_interrupted_mission_attempt(self, code, source):
+        """Keep an unverified Shop outcome retryable without rewards or penalties."""
+        if not self.shop_launch_active():
+            return False
+        if self.coop_mode_var.get() and self.coop_guest_connected():
+            return False
+        launch = self._shop_launch_run
+        run = self.shop_repository.load_run()
+        if (run is None or run.run_id != launch.run_id or run.stage != launch.stage
+                or run.status is not RunStatus.ACTIVE or not run.mission_committed
+                or run.selected_mission_code != str(code or '').upper()):
+            return False
+        self.shop_run = self.shop_service.interrupt_mission(
+            code, run_id=launch.run_id, stage=launch.stage,
+        )
+        self._set_shop_message(
+            f'{source}. Shop run preserved. Retry this mission or choose '
+            'another original offer; no currency or Emergency Revival was spent.'
+        )
+        self.append_log(f'Shop mission {code} interrupted: {source}. Run preserved.')
+        self.coop_publish_shop_stage()
+        return True
+
     def record_failed_mission_attempt(self, code, source):
         if not self.shop_launch_active():
             return super().record_failed_mission_attempt(code, source)
+        reason = self.shop_mission_interruption_reason()
+        if reason:
+            self._set_shop_message(f'{reason}. Shop run preserved; close the game to retry.')
+            return False
         code = str(code or '').upper()
         run = self.shop_repository.load_run()
         if (
             run is None
             or run.run_id != self._shop_launch_run.run_id
+            or run.stage != self._shop_launch_run.stage
             or run.status is not RunStatus.ACTIVE
             or not run.mission_committed
             or run.selected_mission_code != code
@@ -1866,9 +1930,19 @@ class ShopController(ShopPolishController):
     def finish_progression_launch_context(self):
         if not self.shop_launch_active():
             return
+        attempt = getattr(self, '_coop_shop_attempt', None)
+        lobby = getattr(self, '_coop_lobby', None)
+        if (attempt and (attempt['launched'] or attempt['local'] is not None) and not attempt['settled']
+                and lobby and lobby.connected):
+            return  # Keep purchases/mission changes locked until both players finish.
+        self.record_interrupted_mission_attempt(
+            self._shop_launch_run.selected_mission_code,
+            'Mission ended without a verified result',
+        )
         self._shop_launch_run = None
         self._shop_launch_victory_key = None
         self._shop_launch_mission_pool = ()
+        self._shop_interruption_watch = None
         if hasattr(self, 'shop_stage_var'):
             self.refresh_shop_mode()
 
@@ -2102,11 +2176,13 @@ class ShopController(ShopPolishController):
                 f'This Shop run contains {self.next_shop_run_length()} stages. '
                 'At each stage, choose one mission. That selected mission gets '
                 'one attempt.\n\nDo not save, load, or restart a mission. Any '
-                'of these actions, a defeat, or closing the game before victory '
+                'of these actions or a verified defeat '
                 'counts as a failed mission and can end the run. An Emergency '
                 'Revival keeps the run alive by repeating the same stage with '
                 'new mission choices.\n\n'
-                'Select OK only when you are ready to begin.',
+                'Crashes, desyncs, and exits without a verified result preserve the '
+            'run and original mission choices without spending a revival.\n\n'
+            'Select OK only when you are ready to begin.',
                 icon='warning',
                 parent=self,
             ):
@@ -2290,21 +2366,23 @@ class ShopController(ShopPolishController):
             self.workspace_tabs.select(self.shop_tab)
         self.refresh_shop_mode()
 
-    def buy_selected_shop_reward(self, _event=None):
+    def buy_selected_shop_reward(self, _event=None, *, buy_max=False):
         selected = self.shop_catalogue_tree.selection()
         if not selected:
             return
         reward_id = self._shop_catalogue_rows.get(selected[0])
         if not reward_id:
             return
-        self._buy_shop_reward(reward_id)
+        self._buy_shop_reward(reward_id, buy_max=buy_max)
 
-    def _buy_shop_reward(self, reward_id):
+    def _buy_shop_reward(self, reward_id, *, buy_max=False):
         if self.shop_launch_active():
             self._set_shop_message('Wait for current mission process to close.')
             return
         try:
-            validation = self.shop_service.purchase_run_reward(reward_id)
+            validation = self.shop_service.purchase_run_reward(
+                reward_id, buy_max=buy_max
+            )
         except ShopTransitionError as exc:
             self._set_shop_message(exc, error=True)
         else:
@@ -2317,6 +2395,9 @@ class ShopController(ShopPolishController):
                 )
                 self.__dict__[focus_key] = reward_id
                 self._set_shop_message(
+                    f'Purchased {validation.quantity} stacks of '
+                    f'{reward_id} for {validation.cost} Ore.'
+                    if buy_max else
                     f'Purchased {reward_id} with a Free Buff Token.'
                     if validation.cost == 0 else
                     f'Purchased {reward_id} for {validation.cost} Ore.'
@@ -2404,7 +2485,7 @@ class ShopController(ShopPolishController):
 
         buff_items = [
             ('Permanent', item.reward_id, item.stacks)
-            for item in run.permanent_buffs_snapshot
+            for item in active_shop_permanent_buffs(run)
         ] + [
             ('This Run', item.reward_id, item.stacks)
             for item in run.run_buffs
@@ -3322,6 +3403,9 @@ class ShopController(ShopPolishController):
         self.shop_permanent_power_buff_button.configure(
             state='normal' if allowed else 'disabled'
         )
+        self.shop_permanent_power_buff_max_button.configure(
+            state='normal' if allowed else 'disabled'
+        )
         if not selected:
             self.shop_permanent_power_buff_info_var.set(
                 'Select a permanently unlocked power, then choose a buff.'
@@ -3334,12 +3418,12 @@ class ShopController(ShopPolishController):
             selected[0], 'values'
         )
         self.shop_permanent_power_buff_info_var.set(
-            f'{values[0]} • {values[1]} • {values[2]} • Next: {values[3]}.'
+            f'{values[0]} • {values[2]} • {values[4]} • Next: {values[5]}.'
         )
         self.shop_permanent_power_buff_button.configure(
             text=(
-                f'Buy Permanent Stack — {values[3]}'
-                if allowed else values[2]
+                f'Buy Permanent Stack — {values[5]}'
+                if allowed else values[4]
             )
         )
 
@@ -3352,6 +3436,9 @@ class ShopController(ShopPolishController):
             and self._shop_permanent_buff_buyable.get(selected[0], False)
         )
         self.shop_permanent_buff_button.configure(
+            state='normal' if allowed else 'disabled'
+        )
+        self.shop_permanent_buff_max_button.configure(
             state='normal' if allowed else 'disabled'
         )
         if not selected:
@@ -3531,15 +3618,18 @@ class ShopController(ShopPolishController):
                 )
         self.refresh_shop_mode()
 
-    def buy_selected_permanent_buff(self):
+    def buy_selected_permanent_buff(self, *, buy_max=False):
         selected = self.shop_permanent_buff_tree.selection()
         if not selected:
             return
         reward_id = self._shop_permanent_buff_rows.get(selected[0])
         if not reward_id:
             return
+        self._shop_permanent_buff_focus_reward_id = reward_id
         try:
-            outcome = self.shop_service.purchase_permanent_buff(reward_id)
+            outcome = self.shop_service.purchase_permanent_buff(
+                reward_id, buy_max=buy_max
+            )
         except ShopTransitionError as exc:
             self._set_shop_message(exc, error=True)
         else:
@@ -3590,7 +3680,7 @@ class ShopController(ShopPolishController):
                 )
         self.refresh_shop_mode()
 
-    def buy_selected_permanent_power_buff(self):
+    def buy_selected_permanent_power_buff(self, *, buy_max=False):
         selected = self.shop_permanent_power_buff_tree.selection()
         if not selected:
             return
@@ -3599,7 +3689,9 @@ class ShopController(ShopPolishController):
             return
         self._shop_permanent_power_buff_focus_reward_id = reward_id
         try:
-            outcome = self.shop_service.purchase_permanent_buff(reward_id)
+            outcome = self.shop_service.purchase_permanent_buff(
+                reward_id, buy_max=buy_max
+            )
         except ShopTransitionError as exc:
             self._set_shop_message(exc, error=True)
         else:
@@ -3608,7 +3700,12 @@ class ShopController(ShopPolishController):
 
     def _report_profile_purchase(self, outcome, item_id):
         validation = outcome.validation
-        if validation.allowed:
+        if validation.allowed and outcome.quantity > 1:
+            self._set_shop_message(
+                f'Purchased {outcome.quantity} stacks of {item_id} '
+                f'for {gem_text(validation.cost)}.'
+            )
+        elif validation.allowed:
             self._set_shop_message(
                 f'Purchased {item_id} for {gem_text(validation.cost)}.'
             )

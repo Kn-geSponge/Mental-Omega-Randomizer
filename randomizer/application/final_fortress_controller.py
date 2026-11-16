@@ -110,11 +110,30 @@ class FinalFortressController(FortressCoopController):
                 entry['display_name'] for entry in map_definitions(self.final_fortress_map_catalogue))
             if definition is not None:
                 self.final_fortress_map_var.set(definition['display_name'])
-            self.final_fortress_state = self.final_fortress_repository.load()
-            if self.final_fortress_state['preferences']['workspace_selected']:
-                self.game_mode_var.set(DISPLAY_NAME)
+            self._fortress_initial_loaded = False
         except (RuntimeError, ValueError, OSError) as exc:
             self.final_fortress_status_var.set(str(exc))
+
+    def load_initial_fortress_state(self):
+        """Restore and validate saved progression without reading Tk controls."""
+        repository = self.final_fortress_repository
+        try:
+            state = repository.load() if self.final_fortress_config is not None else None
+            return repository, state, ''
+        except (RuntimeError, ValueError, OSError) as exc:
+            return repository, None, str(exc)
+
+    def apply_initial_fortress_state(self, result):
+        self.final_fortress_repository, self.final_fortress_state, error = result
+        self._fortress_initial_loaded = True
+        if error:
+            self.final_fortress_status_var.set(error)
+            return
+        state = self.final_fortress_state
+        if state is not None and state['preferences']['workspace_selected']:
+            self.game_mode_var.set(DISPLAY_NAME)
+            self.sync_shop_workspace()
+        self.refresh_final_fortress()
 
     def _sync_game_mode_choice(self, *_args):
         if not self.final_fortress_mode_selected():
@@ -146,10 +165,15 @@ class FinalFortressController(FortressCoopController):
         if selected == ALL_UNLOCKS_PROFILE:
             self.final_fortress_progression_tabs.select(0)
 
-    def on_game_mode_changed(self, event=None):
+    def available_game_modes(self):
+        challenge = self.selected_mission_category() == 'challenge'
+        return tuple(mode for mode in self.game_mode_choices
+                     if not challenge or mode != 'Shop Mode')
+
+    def apply_game_mode_selection(self):
         selected = self.game_mode_var.get()
         if selected not in self.game_mode_choices:
-            return
+            return False
         final_fortress = selected == DISPLAY_NAME
         process = getattr(self, 'active_game_process', None)
         if (getattr(self, '_coop_lobby', None) or getattr(self, '_coop_busy', False)
@@ -159,35 +183,29 @@ class FinalFortressController(FortressCoopController):
             self.game_mode_var.set(
                 DISPLAY_NAME if self._final_fortress_saved_tabs is not None
                 else self.progression_mode_var.get())
-            return
+            return False
         if final_fortress or self._final_fortress_saved_tabs is not None:
             try:
                 self.final_fortress_repository.set_workspace_selected(final_fortress)
             except FinalFortressPersistenceError as exc:
                 messagebox.showerror(DISPLAY_NAME, str(exc), parent=self)
-                if final_fortress:
-                    self.game_mode_var.set(self.progression_mode_var.get())
-                    return
+                return False
         if final_fortress:
             # Never pass this standalone mode into campaign seed generation.
             self.sync_shop_workspace()
             self.refresh_coop_controls()
-            return
+            return True
         self.progression_mode_var.set(selected)
-        self.on_progression_mode_changed(event)
+        self.on_progression_mode_changed()
         self._sync_game_mode_choice()
         self.update_header_summary()
         self.refresh_coop_controls()
+        return True
 
     def refresh_challenge_support_controls(self):
         result = super().refresh_challenge_support_controls()
         self.refresh_fortress_settings_controls()
-        for name in ('progression_mode_combo', 'shop_progression_mode_combo'):
-            widget = getattr(self, name, None)
-            if widget is not None:
-                choices = tuple(widget.cget('values'))
-                if DISPLAY_NAME not in choices:
-                    widget.configure(values=(*choices, DISPLAY_NAME))
+        self.refresh_game_mode_navigation()
         return result
 
     def sync_shop_workspace(self):
@@ -258,6 +276,8 @@ class FinalFortressController(FortressCoopController):
         return super().on_new_seed()
 
     def refresh_final_fortress(self):
+        if not getattr(self, '_fortress_initial_loaded', False):
+            return
         if self.final_fortress_config is None:
             return
         try:

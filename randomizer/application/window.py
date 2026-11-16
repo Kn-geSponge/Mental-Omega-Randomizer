@@ -19,7 +19,10 @@ from ._dependencies import (
     traceback,
 )
 
-class WindowController:
+from .game_mode_navigation import GameModeNavigationController
+
+
+class WindowController(GameModeNavigationController):
 
     def close_launcher(self):
         """Keep cleanup polling alive until an active game safely exits."""
@@ -48,6 +51,7 @@ class WindowController:
 
     def create_widgets(self):
         build_launcher_widgets(self)
+        self.initialize_game_mode_navigation()
         self.refresh_coop_controls()
 
     def game_speed_controls_locked(self):
@@ -306,6 +310,29 @@ class WindowController:
         ):
             self.after_idle(self.resize_grid_canvas_window)
 
+    def queue_view_refresh(self, callback):
+        """Coalesce page renders and paint the existing modal before Tk work."""
+        jobs = self.__dict__.setdefault('_pending_view_refreshes', set())
+        key = callback
+        if key in jobs:
+            return
+        jobs.add(key)
+
+        def render():
+            jobs.discard(key)
+            if not getattr(self, 'initial_load_complete', False) or self.busy_depth:
+                callback()
+                return
+            self.show_busy('Loading page…', 'Preparing this page. Please wait.')
+            def display():
+                try:
+                    callback()
+                finally:
+                    self.hide_busy()
+            self.after(20, display)
+
+        self.after_idle(render)
+
     def on_info_tab_changed(self, _event=None):
         if self.details_view_visible():
             if getattr(self, '_details_view_dirty', False):
@@ -481,7 +508,7 @@ class WindowController:
             return
         if str(self.busy_progress['mode']) == 'indeterminate':
             self.busy_progress.step(2)
-        self._busy_animation_after_id = self.after(40, self.animate_busy)
+        self._busy_animation_after_id = self.after(60, self.animate_busy)
 
     def update_busy_elapsed(self):
         if not self.busy_depth:
@@ -490,7 +517,7 @@ class WindowController:
         self.busy_detail.configure(
             text=f'{self.busy_detail_text}\nElapsed: {elapsed}s',
         )
-        self.busy_update_after_id = self.after(250, self.update_busy_elapsed)
+        self.busy_update_after_id = self.after(1000, self.update_busy_elapsed)
 
     def hide_busy(self):
         self.busy_depth = max(0, self.busy_depth - 1)
@@ -516,6 +543,7 @@ class WindowController:
             pass
         self.busy_overlay.place_forget()
         self.configure(cursor='')
+        self.refresh_game_mode_navigation()
 
     def queue_busy_progress(self, detail, current=None, total=None):
         """Queue a real worker stage without reading Tk from that worker."""
@@ -566,14 +594,14 @@ class WindowController:
                 sys.setswitchinterval(previous_switch_interval)
 
             def deliver_result(result=result):
-                # The background phase is finished. Remove the animated
-                # overlay before the main-thread UI refresh so it cannot look
-                # like a frozen loading screen while cards/grid are painted.
-                self.hide_busy()
+                # Keep the modal visible until the result has been displayed.
                 try:
                     on_success(result)
                 except Exception as exc:
+                    self.hide_busy()
                     on_error(exc, traceback.format_exc())
+                else:
+                    self.hide_busy()
 
             self.ui_queue.put(('callback', deliver_result))
 
@@ -629,7 +657,7 @@ class WindowController:
             'assistance_frame',
             'appearance_frame',
         )
-        required = (*normal_names, 'shop_settings_frame', 'fortress_mode_settings_frame')
+        required = (*normal_names, 'shop_settings_frame')
         if not all(hasattr(self, name) for name in required):
             return
         fortress_mode = self.final_fortress_mode_selected()
@@ -655,7 +683,7 @@ class WindowController:
         normal_intro = self.__dict__.setdefault(
             '_campaign_settings_intro_text', self.settings_intro_label.cget('text'))
         self.settings_intro_label.configure(text=(
-            'Choose a game mode, configure Final Fortress co-op and launcher appearance. '
+            'Configure Final Fortress co-op and launcher appearance. '
             'Defense setup and permanent perks are in the Final Fortress tab.'
             if fortress_mode else normal_intro))
         self.appearance_frame.configure(
@@ -670,13 +698,10 @@ class WindowController:
             self.settings_intro_label.grid(
                 row=0, column=0, columnspan=2 if wide else 1,
                 sticky='ew', pady=(0, 8))
-            self.fortress_mode_settings_frame.grid(
-                row=1, column=0, columnspan=2 if wide else 1,
-                sticky='ew', pady=(0, 8))
             self.mission_appearance_column.grid(
-                row=2, column=0, sticky='new', padx=(0, 4) if wide else 0)
+                row=1, column=0, sticky='new', padx=(0, 4) if wide else 0)
             self.appearance_frame.grid(
-                row=2 if wide else 3, column=1 if wide else 0,
+                row=1 if wide else 2, column=1 if wide else 0,
                 sticky='new', padx=(4, 0) if wide else 0, pady=(8, 0))
             self.on_settings_content_configure()
             return
